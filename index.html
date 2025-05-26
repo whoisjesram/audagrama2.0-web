@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>AUDAGRAMA | Creatividad que conecta. Estrategia que funciona.</title>
+  <!-- SEO y Open Graph -->
+  <meta name="description" content="AUDAGRAMA: Creatividad que conecta. Estrategia que funciona. Branding, estrategia, diseño y consultoría creativa para marcas que quieren trascender.">
+  <meta property="og:title" content="AUDAGRAMA | Creatividad que conecta. Estrategia que funciona.">
+  <meta property="og:description" content="Branding, estrategia, diseño y consultoría creativa para marcas que quieren trascender.">
+  <meta property="og:image" content="https://audagrama.com/og-image.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://audagrama.com/">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    a:focus {
+      outline: 2px solid var(--color-accent-yellow, #ffe066);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER + HERO -->
+  <header>
+    <div class="container hero-container">
+      <div class="logo">
+        <a href="/" style="color:inherit;text-decoration:none;" aria-label="Ir a inicio">AUDAGRAMA</a>
+      </div>
+      <div id="multilang-phrase">
+        Creatividad que conecta. Estrategia que funciona.
+      </div>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- SECCIONES -->
+  <main>
+    <section id="servicios" class="section-fade">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Branding</li>
+        <li>Estrategia</li>
+        <li>Naming</li>
+        <li>Identidad Visual</li>
+        <li>Diseño Digital</li>
+        <li>Consultoría Creativa</li>
+      </ul>
+    </section>
+    <section id="proyectos" class="section-fade">
+      <h2>Proyectos</h2>
+      <p>Creamos marcas que trascienden, proyectos que inspiran y soluciones que conectan con las personas.</p>
+    </section>
+    <section id="clientes" class="section-fade">
+      <h2>Clientes</h2>
+      <p>Empresas, startups y visionarios que buscan diferenciarse y dejar huella.</p>
+    </section>
+    <section id="contacto" class="section-fade">
+      <h2>Contacto</h2>
+      <p>¿Listo para llevar tu marca al siguiente nivel?<br>
+      Escríbenos a <a href="mailto:hola@audagrama.com">hola@audagrama.com</a></p>
+    </section>
+  </main>
+  <!-- FOOTER COMPLETO -->
+  <footer>
+    <div class="footer-brand">AUDAGRAMA</div>
+    <nav class="footer-nav">
+      <a href="mailto:hola@audagrama.com">EMAIL</a>
+      <a href="https://www.instagram.com/audagrama" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+      <a href="https://www.linkedin.com/company/todokul" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+    </nav>
+    <div class="footer-legal">
+      <a href="terms.html">Términos y Condiciones</a>
+      <span>&middot;</span>
+      <a href="privacy.html">Política de Privacidad</a>
+    </div>
+    <div class="footer-copy">
+      &copy; <span id="current-year"></span> AUDAGRAMA. Todos los derechos reservados.
+      <br/>
+      <small>Una marca de <strong><a class="todokul-link" href="https://todokul.com" target="_blank" rel="noopener noreferrer">TODO KÜL</a></strong></small>
+    </div>
+  </footer>
+  <!-- JS: Frase animada, fade-in secciones, año automático -->
+  <script>
+    // Frase multilingüe animada
+    const phrases = [
+      "Creatividad que conecta. Estrategia que funciona.",
+      "Creativity that connects. Strategy that works.",
+      "Créativité qui connecte. Stratégie qui fonctionne.",
+      "Kreativität, die verbindet. Strategie, die funktioniert.",
+      "Creatività che connette. Strategia che funziona.",
+      "Criatividade que conecta. Estratégia que funciona."
+    ];
+    let phraseIndex = 0;
+    setInterval(() => {
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      document.getElementById('multilang-phrase').textContent = phrases[phraseIndex];
+    }, 2600);
+
+    // Animación minimalista de fade-in para secciones
+    document.addEventListener("DOMContentLoaded", function() {
+      // Año automático en el footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+
+      // Fade-in secciones
+      const faders = document.querySelectorAll('.section-fade');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      faders.forEach(sec => observer.observe(sec));
+    });
+  </script>
+</body>
+</html>
