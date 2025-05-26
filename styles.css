@@ -1,0 +1,276 @@
+:root {
+  --color-bg: #fff;
+  --color-primary: #222;
+  --color-text: #333;
+  --color-text-muted: #888;
+  --color-accent-yellow: #ffe066;
+  --color-accent-yellow-hover: #ffd700;
+  --font-title: 'Montserrat', Arial, sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+}
+
+/* RESET Y BASE */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* HEADER Y HERO */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.logo {
+  font-size: 4rem;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  font-family: var(--font-title);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+#multilang-phrase {
+  font-size: 1.6rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  margin-bottom: 2.5rem;
+  min-height: 2.5rem;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+nav ul {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+nav a {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0.2em 0;
+  border-bottom: 1.5px solid transparent;
+}
+
+nav a:hover {
+  color: #555;
+  border-bottom: 1.5px solid var(--color-primary);
+}
+
+/* SECCIONES */
+section {
+  padding: 5rem 0 4rem 0;
+  text-align: center;
+}
+
+section h2 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+}
+
+section p, section ul, section li {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin: 0 auto 1.2rem auto;
+  max-width: 600px;
+  font-family: var(--font-body);
+  list-style: none;
+  padding: 0;
+}
+
+/* ANIMACIÓN FADE-IN PARA SECCIONES */
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+}
+.section-fade.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* FOOTER MINIMALISTA Y PEQUEÑO */
+footer {
+  background: var(--color-bg);
+  padding: 3.5rem 0 1.5rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+  border-top: 1px solid #eee;
+  font-size: 0.92rem; /* Footer general: fuente más pequeña */
+}
+
+.footer-brand {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  letter-spacing: 0.22em;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Footer nav: solo aquí el efecto tachado animado */
+.footer-nav {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+}
+
+.footer-nav a {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s cubic-bezier(.4,0,.2,1);
+}
+.footer-nav a:hover::after {
+  width: 100%;
+}
+
+/* Footer legal y copy: más pequeño, sin efecto tachado */
+.footer-legal a,
+.footer-copy,
+.footer-copy small {
+  font-size: 0.85rem;
+  text-decoration: none !important;
+  position: static !important;
+  background: none !important;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+.footer-legal a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  transition: color 0.2s;
+  font-weight: 400;
+  text-transform: none;
+}
+.footer-legal a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.footer-copy {
+  margin-top: 1.1rem;
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  color: var(--color-text-muted);
+}
+.todokul-link {
+  color: #222;
+  background: var(--color-accent-yellow);
+  border-radius: 0.3em;
+  padding: 0 0.2em;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  font-weight: bold;
+}
+.todokul-link:hover {
+  background: var(--color-accent-yellow-hover);
+  color: #111;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .logo {
+    font-size: 2.2rem !important;
+  }
+  #multilang-phrase {
+    font-size: 1.1rem !important;
+  }
+  nav ul {
+    gap: 1.2rem !important;
+  }
+  section {
+    padding: 2.5rem 0 2rem 0;
+  }
+  section h2 {
+    font-size: 1.3rem;
+  }
+  .footer-brand {
+    font-size: 1.05rem;
+  }
+  .footer-nav {
+    gap: 1.1rem;
+  }
+  .footer-legal {
+    gap: 0.6rem;
+    font-size: 0.8rem;
+  }
+  .footer-copy,
+  .footer-copy small {
+    font-size: 0.78rem;
+  }
+}
+/* LOGO */
+.logo-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  color: var(--color-primary) !important;
+  cursor: pointer;
+}
+.logo-link:hover,
+.logo-link:focus {
+  color: var(--color-primary) !important;
+  border-bottom: none !important;
+  outline: none;
+}
